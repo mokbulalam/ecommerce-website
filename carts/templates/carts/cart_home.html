@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if cart.products.exists %}
+<div class="container" >
+	<br>
+	<hr>
+	<table class="table table-dark">
+	  <thead>
+	    <tr>
+	      <th scope="col">#</th>
+	      <th scope="col">Product Name</th>
+	      <th scope="col">Price</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	{% for product in cart.products.all %}
+	    <tr>
+	      <th scope="row">{{ forloop.counter }}</th>
+	      <td>{{ product.title }}</td>
+	      <td>$ {{ product.price }}</td>
+	    </tr>
+	    {% endfor %}
+
+	    <tr>
+	      <th scope="row"></th>
+	      <td><h4>-----------------Subtotal-----------------</h3></td>
+	      <td><h4>$ {{ cart.subtotal }}</h4></td>
+	    </tr>
+
+	    <tr>
+	      <th scope="row"></th>
+	      <td><h3>----------------Total----------------</h3></td>
+	      <td><h3>$ {{ cart.total }}</h3></td>
+	    </tr>
+
+	    <tr>
+	      <th scope="row"></th>
+	      <td><a class="btn btn-lg btn-success" href="{% url 'cart:checkout_home' %}">Checkout</a></td>
+	    </tr>
+
+	  </tbody>
+	</table>
+	<hr>
+</div>
+{% else %}
+<h2>Cart is empty.</h2>
+{% endif %}
+
+{% endblock %}

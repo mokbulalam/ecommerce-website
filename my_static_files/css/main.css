@@ -1,0 +1,26 @@
+#homepage_product_image {
+    height: 300px;
+}
+
+#add_to_cart_button {
+    position: absolute;
+    bottom: 20px;
+}
+
+#card-price {
+    position: absolute;
+    left: 250px;
+}
+
+#copyright {
+    text-align: center;
+}
+
+#product-detail-image {
+	height: 500px;
+    align-content: center;
+}
+
+#product_card {
+    height: 450px;
+}

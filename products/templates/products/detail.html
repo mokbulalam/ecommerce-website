@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row container-fluid">
+	<div class="container-fluid" align="center">
+		<h1>{{ object.title }}<br></h1>
+
+		{{ object.description|linebreaks }}
+		<img src="{{ object.image.url }}" id="product-image" height="470px" />
+		<h2>Price: ${{ object.price }}</h2>
+		<hr>
+
+		{% include 'products/snippets/update_cart.html' with product=object cart=cart %}
+	</div>	
+</div>
+
+
+{% endblock %}
