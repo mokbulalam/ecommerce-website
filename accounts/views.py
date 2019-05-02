@@ -12,6 +12,7 @@ def login_page(request):
 	next_ = request.GET.get('next')
 	next_post = request.POST.get('next')
 	redirect_path = next_ or next_post or None
+	print('redirect path is ' + str(redirect_path))
 
 	if form.is_valid():
 		username 	= form.cleaned_data.get("username")

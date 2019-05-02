@@ -2,11 +2,7 @@
 
 {% block content %}
 
-<form method="POST">
-{% csrf_token %}
-	{{ form }}
-	<button type="submit" class="btn btn-primary">Login</button>
-</form>
+{% include 'accounts/snippets/login_form.html' with form=form next_url=request.build_absolute_uri %}
 
 {% endblock %}
 

@@ -2,6 +2,30 @@
 
 {% block content %}
 
-<h2>Checkout page</h2>
+{% if not billing_profile %}
+<div class="container-fluid text-center row">
+	<div class="col-12 col-md-6">
+		<button class="btn btn-primary">Login and continue as an user</button>
+		<p></p>
+
+		{% include 'accounts/snippets/login_form.html' with form=form next_url=request.build_absolute_uri %}
+
+	</div>
+	<div class="col-12 col-md-6">
+		<button class="btn btn-info">Continue as Guest</button>
+	</div>	
+</div>
+
+
+{% else %}
+
+	<div class="container-fluid">
+		<h2>Checkout page</h2>
+		<p>Cart Total: {{ order.cart.total }}</p>
+		<p>Shipping Total: {{ order.shipping_total }}</p>
+		<p>Order Total: {{ order.total }}</p>
+	</div>
+
+{% endif %}
 
 {% endblock %}
